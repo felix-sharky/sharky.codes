@@ -1,0 +1,54 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const ProjectRepos = [
+    "felix-sharky/steam-widget",
+    "teamspeak-bot/teamspeak-bot"
+]
+
+const repoData = await Promise.all(
+    ProjectRepos.map(async repo => {
+        const requestInit = {
+            headers: new Headers({
+                "User-Agent": Astro.url.host,
+                "Accept": "application/vnd.github.v3+json",
+                "Authorization": `Bearer ${import.meta.env.GITHUB_TOKEN ?? ""}`,
+            }),
+        } satisfies RequestInit;
+
+        return fetch("https://api.github.com/repos/" + repo, requestInit)
+            .then(async r => {
+                if (!r.ok) {
+                    const e = await r.text().catch(() => "Unknown Error");
+                    throw new Error(
+                        `Failed to fetch repo info for ${repo}: ${r.status} ${r.statusText}\n${e}`
+                    );
+                }
+                return r.json();
+            })
+            .catch(e => {
+                console.error(e);
+                return null;
+            });
+    })
+);
+---
+
+<div>
+    {repoData.map(data => (data ? <ProjectCard {...data} /> : null))}
+</div>
+
+<style>
+    div {
+        --cols: 2;
+        display: grid;
+        grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+        gap: 1em;
+    }
+
+    @media screen and (max-width: 970px) {
+        div {
+            --cols: 1;
+        }
+    }
+</style>

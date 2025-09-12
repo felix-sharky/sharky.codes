@@ -1,0 +1,49 @@
+---
+import avatar from "@wing/assets/avatar.jpeg"
+import SocialsCard from "./SocialsCard.astro"
+---
+
+<div class="sidebar">
+    <a href="/">
+        <img src={avatar.src} class="avatar"/>
+    </a>
+
+    <SocialsCard />
+</div>
+
+<style lang="scss">
+    .sidebar {
+        width: 15em;
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 4em;
+        gap: 2em;
+    }
+
+    .avatar {
+        border-radius: 50%;
+        width: 15em;
+    }
+
+    #np-section {
+        display: none;
+    }
+
+    @media screen and (max-width: 970px) {
+		.sidebar {
+			width: 100%;
+            position: unset;
+		}
+
+        a {
+            align-self: center;
+            padding: 0;
+
+            .avatar {
+                width: 5em;
+                margin-top: 0.5em;
+            }
+        }
+	}
+</style>

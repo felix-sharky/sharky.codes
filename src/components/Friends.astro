@@ -1,0 +1,24 @@
+---
+import Friend from "./Friend.astro";
+---
+
+<div class="friends" id="friendList">
+    <Friend name="Flows" github="flows-c" />
+</div>
+
+<style>
+    .friends {
+        display: flex;
+        gap: 1.5em;
+        margin-top: 1em;
+        flex-wrap: wrap;
+    }
+</style>
+
+<script>
+    // Shuffle friends
+    const friends = document.querySelector("#friendList") as HTMLDivElement;
+    for (let i = friends.children.length; i >= 0; i--)
+        // appending an already added element moves it
+        friends.appendChild(friends.children[Math.floor(Math.random() * i)]);
+</script>

@@ -1,0 +1,72 @@
+---
+import Card from "./Card.astro";
+import InfoChip from "./InfoChip.astro";
+import Label from "./Label.astro";
+
+import JavaIcon from "../../public/icons/languages/java.svg"
+import TSIcon from "../../public/icons/languages/typescript.svg"
+import JSIcon from "../../public/icons/languages/javascript.svg"
+import ProgressIcon from "../../public/icons/languages/progress.svg"
+
+import IntelliJ from "../../public/icons/software/intellij.svg"
+import WebStorm from "../../public/icons/software/webstorm.svg"
+
+import SpringBootIcon from "../../public/icons/libraries/springboot.svg"
+import NodeJSIcon from "../../public/icons/libraries/nodejs.svg"
+---
+
+<Card>
+    <Label>IDEs</Label>
+    <div class="tools">
+        <InfoChip>
+            <IntelliJ slot="icon"/> IntelliJ IDEA
+        </InfoChip>
+
+        <InfoChip>
+            <WebStorm slot="icon"/> WebStorm
+        </InfoChip>
+    </div>
+
+    <br />
+
+    <Label>Languages</Label>
+    <div class="tools">
+        <InfoChip>
+            <JavaIcon slot="icon"/> Java
+        </InfoChip>
+
+        <InfoChip>
+            <TSIcon slot="icon"/> TypeScript
+        </InfoChip>
+
+        <InfoChip>
+            <JSIcon slot="icon"/> JavaScript
+        </InfoChip>
+
+        <InfoChip>
+            <ProgressIcon slot="icon"/> Progress 4GL
+        </InfoChip>
+    </div>
+
+    <br />
+
+    <Label>Frameworks</Label>
+    <div class="tools">
+        <InfoChip>
+            <SpringBootIcon slot="icon"/> Spring Boot
+        </InfoChip>
+
+        <InfoChip>
+            <NodeJSIcon slot="icon"/> Node.js
+        </InfoChip>
+    </div>
+</Card>
+
+<style>
+    .tools {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8em;
+		margin-top: 1em;
+	}
+</style>

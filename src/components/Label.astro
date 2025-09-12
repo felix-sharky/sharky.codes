@@ -1,0 +1,19 @@
+---
+interface Props {
+    class?: string
+}
+---
+
+<p class={Astro.props.class}>
+    <slot />
+</p>
+
+<style>
+    p {
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        color: var(--onSurfaceAlt);
+        margin: 0;
+    }
+</style>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    --link: #00AAFF;
+}
+
+.light {
+    --primary: #8e44ad; /* Medium purple */
+    --inversePrimary: #d6b3ff; /* Light purple */
+    --secondaryContainer: #f3e6ff; /* Very light purple container */
+    --onSecondaryContainer: #5e3370; /* Deep purple text */
+    --background: #f8f4ff; /* Light purple background */
+    --onSurface: #3d2352; /* Dark purple for text */
+    --onSurfaceAlt: #7c5ca4; /* Muted purple for alt text */
+    --containerLow: #ede2fa; /* Slightly darker light purple */
+
+    --star: #ff9800;
+}
+
+.dark {
+    --primary: #a259ff; /* Vibrant purple */
+    --inversePrimary: #6c3483; /* Deep purple */
+    --secondaryContainer: #2d193c; /* Dark purple container */
+    --onSecondaryContainer: #d1b3ff; /* Light purple text */
+    --background: #18122b; /* Very dark purple background */
+    --onSurface: #e0d7ff; /* Light purple for text */
+    --onSurfaceAlt: #b39ddb; /* Muted purple for alt text */
+    --containerLow: #231942; /* Slightly lighter dark purple */
+
+    --star: #e2e210;
+}
+
+.mocha {
+    --primary: #cba6f7;
+    --inversePrimary: #89b4fa;
+    --secondaryContainer: #45475a;
+    --onSecondaryContainer: #cdd6f4;
+    --background: #11111b;
+    --onSurface: #cdd6f4;
+    --onSurfaceAlt: #bac2de;
+    --containerLow: #1e1e2e;
+
+    --star: #f9e2af;
+}
+
+.latte {
+    --primary: #04a5e5;
+    --inversePrimary: #1e66f5;
+    --secondaryContainer: #ccd0da;
+    --onSecondaryContainer: #4c4f69;
+    --background: #dce0e8;
+    --onSurface: #4c4f69;
+    --onSurfaceAlt: #4c4f69;
+    --containerLow: #e6e9ef;
+
+    --star: #df8e1d;
+}
+
+html {
+    overflow-y: overlay;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 2em;
+
+    font-family: "Inter";
+    /* Use dark theme by default */
+    background-color: var(--background);
+    color: var(--onSurface);
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+   
+::-webkit-scrollbar-track {
+    background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--onSurface) 40%, transparent);
+    border-radius: 5em;
+}
+
+@media screen and (max-width: 970px) {
+    html,
+    body {
+        padding: 0.5em;
+    }
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}

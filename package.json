@@ -1,0 +1,26 @@
+{
+    "name": "sharky.codes",
+    "version": "1.0.0",
+    "description": "Personal Website",
+    "packageManager": "pnpm@10.15.0",
+    "engines": {
+        "node": ">=22.0.0"
+    },
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "prestart": "astro build",
+        "start": "astro preview --host"
+    },
+    "dependencies": {
+        "@astrojs/svelte": "^7.1.0",
+        "astro": "^5.13.5",
+        "sass": "^1.91.0",
+        "svelte": "^5.38.6"
+    },
+    "devDependencies": {
+        "@astrojs/sitemap": "^3.5.1",
+        "typescript": "^5.9.2"
+    }
+}

@@ -1,0 +1,102 @@
+---
+import Sidebar from "@wing/components/Sidebar.astro";
+import "@wing/styles/global.css";
+
+export interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<title>{title}</title>
+		<meta name="description" content={description}/>
+		<meta name="theme-color" content="#02E376"/>
+		<link rel="icon" href="/favicon.png" />
+
+		<meta name="og:type" content="website" />
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<meta name="og:url" content={Astro.url} />
+		<meta name="og:image" content="/favicon.png" />
+
+		<meta name="darkreader-lock" />
+
+        <script is:inline defer src={import.meta.env.UMAMI_URL} data-website-id={import.meta.env.UMAMI_WEBSITE_ID} />
+	</head>
+	
+	<body>
+		<script is:raw>
+			console.log("%cTry running cattpuccin()!", "font-size: 2em; background-color: #11111b; color: #cdd6f4; padding: 1em")
+
+            let theme = localStorage.getItem("theme");
+            if (!theme || !["light", "dark", "mocha", "latte"].includes(theme)) {
+                theme = window.matchMedia("(prefers-color-scheme: dark)")
+                    .matches
+                    ? "dark"
+                    : "light";
+            }
+            document.body.classList.add(theme);
+
+			function catppuccin() {
+				localStorage.setItem("theme", "mocha");
+				document.body.classList.add("mocha");
+    			document.body.classList.remove("dark", "light", "latte")
+			}
+        </script>
+		
+		<main>
+			<div class="sidebar">
+				<Sidebar />
+			</div>
+			
+			<div class="content">
+				<slot />
+			</div>
+		</main>
+	</body>
+</html>
+
+<style lang="css">
+	main {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.content {
+		display: flex;
+		width: 50em;
+		flex-direction: column;
+		gap: 2em;
+	}
+	
+	.sidebar {
+		margin-right: 4em;
+	}
+
+	@media screen and (max-width: 970px) {
+		main {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.content {
+			width: 100%;
+		}
+
+		.sidebar {
+			margin-right: 0;
+			margin-bottom: 2em;
+			width: 100%;
+		}
+	}
+</style>

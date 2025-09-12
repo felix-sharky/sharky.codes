@@ -1,0 +1,39 @@
+---
+interface Props {
+    url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<a class='social' href={url} rel='me' target='_blank' data-umami-event="socials_click" data-umami-event-url={url} >
+    <slot name="icon"/>
+    <slot />
+</a>
+
+<style lang="scss">
+    .social {
+        display: flex;
+        color: var(--primary);
+        margin-top: 1em;
+        align-items: center;
+        gap: 0.5em;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    @media screen and (max-width: 970px) {
+		.social {
+            text-indent: -9999999px;
+            width: min-content;
+            gap: unset;
+
+            :global(svg) {
+                width: 24px;
+                height: 24px;
+            }
+        }
+	}
+</style>

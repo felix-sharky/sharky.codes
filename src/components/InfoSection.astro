@@ -1,0 +1,41 @@
+---
+import InfoChip from "./InfoChip.astro";
+import Person from "../../public/icons/person.svg";
+import Location from "../../public/icons/location.svg";
+import Clock from "../../public/icons/clock.svg";
+---
+
+<div class="info">
+    <InfoChip>
+        <Person slot="icon"/> He/They
+    </InfoChip>
+
+    <InfoChip>
+        <Clock slot="icon"/> CET <span>-</span> <span id="time"/>
+    </InfoChip>
+
+    <InfoChip>
+        <Location slot="icon"/> Berlin, Germany
+    </InfoChip>
+</div>
+
+<script>
+    function updateTime() {
+        var currentTime = new Date();
+        var timeString = currentTime.toLocaleString('en-US', { timeStyle: "short", timeZone: "Europe/Berlin" });
+
+        document.getElementById("time")!.textContent = timeString;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
+
+<style>
+    .info {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8em;
+		margin-top: 1em;
+	}
+</style>

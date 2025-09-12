@@ -1,0 +1,37 @@
+---
+import Label from "./Label.astro";
+import ThemeToggle from "./ThemeToggle.svelte";
+
+import Sun from "../../public/icons/sun.svg";
+import Moon from "../../public/icons/moon.svg";
+---
+
+<footer>
+    <div class="copyright">
+        <Label>© 2025 sharky.codes</Label>
+    </div>
+
+    <ThemeToggle client:only="svelte">
+        <Sun color="var(--primary)" slot="toggled" />
+        <Moon color="var(--primary)" slot="untoggled" />
+    </ThemeToggle>
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        display: flex;
+        flex-direction: column;
+        gap: .4em;
+    }
+
+    a {
+        font-size: 14px;
+    }
+</style>

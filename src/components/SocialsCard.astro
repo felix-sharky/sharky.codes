@@ -1,0 +1,39 @@
+---
+import Card from "./Card.astro";
+import Label from "./Label.astro";
+import SocialAccount from "./SocialAccount.astro";
+
+import Bluesky from "../../public/icons/social/bluesky.svg";
+import Discord from "../../public/icons/social/discord.svg";
+import Email from "../../public/icons/email.svg";
+import GitHub from "../../public/icons/social/github.svg";
+import Mastodon from "../../public/icons/social/mastodon.svg";
+---
+
+<Card class="socials">
+    <Label class="label">Socials</Label>
+
+    <div class="content">
+        <SocialAccount url="https://github.com/felix-sharky">
+            <GitHub slot="icon" /> GitHub
+        </SocialAccount>
+
+        <SocialAccount url="https://discord.com/users/139721526692937729">
+            <Discord slot="icon" /> Discord
+        </SocialAccount>
+
+        <SocialAccount url="mailto:SharkyCodes <contact@sharky.codes>">
+            <Email slot="icon" /> Email
+        </SocialAccount>
+    </div>
+</Card>
+
+<style lang="scss">
+    @media screen and (max-width: 970px) {
+        .content {
+            display: flex;
+            gap: 1.5em;
+            justify-content: space-between;
+        }
+	}
+</style>
