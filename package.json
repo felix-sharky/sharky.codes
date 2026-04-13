@@ -15,9 +15,9 @@
     },
     "dependencies": {
         "@astrojs/svelte": "^8.0.4",
-        "astro": "^6.1.1",
-        "sass": "^1.98.0",
-        "svelte": "^5.55.1"
+        "astro": "^6.1.5",
+        "sass": "^1.99.0",
+        "svelte": "^5.55.3"
     },
     "devDependencies": {
         "@astrojs/sitemap": "^3.7.2",
