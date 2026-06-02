@@ -14,13 +14,13 @@
         "start": "astro preview --host"
     },
     "dependencies": {
-        "@astrojs/svelte": "^8.1.1",
-        "astro": "^6.3.7",
+        "@astrojs/svelte": "^8.1.2",
+        "astro": "^6.4.2",
         "sass": "^1.100.0",
-        "svelte": "^5.55.9"
+        "svelte": "^5.56.1"
     },
     "devDependencies": {
-        "@astrojs/sitemap": "^3.7.2",
+        "@astrojs/sitemap": "^3.7.3",
         "typescript": "^6.0.3"
     }
 }
