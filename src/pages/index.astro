@@ -7,14 +7,27 @@ import Label from '@wing/components/Label.astro';
 import Projects from '@wing/components/Projects.astro';
 import ToolListCard from '@wing/components/ToolListCard.astro';
 import Layout from '@wing/layouts/Layout.astro';
+
+const birthday = {
+    year: 2001,
+    month: 7,
+    day: 1,
+};
+
+const getAge = (date = new Date()) => {
+    const hasHadBirthday = date.getMonth() + 1 > birthday.month
+        || (date.getMonth() + 1 === birthday.month && date.getDate() >= birthday.day);
+
+    return date.getFullYear() - birthday.year - (hasHadBirthday ? 0 : 1);
+};
 ---
 
-<Layout title="sharky.codes - Home" description="24 year old developer from Berlin, Germany">
+<Layout title="sharky.codes - Home" description="Developer from Berlin, Germany">
 	<Card id="about">
 		<Label>About</Label>
 
 		<h1>Hello, I'm Felix</h1>
-        Im a 24 year old developer from Berlin, Germany.
+        <span>Im a <span id="age" data-birth-year={birthday.year} data-birth-month={birthday.month} data-birth-day={birthday.day}>{getAge()}</span> year old developer from Berlin, Germany.</span>
         <p />
         I love building services and applications that are useful and fun to use.
         <br />My main focus is Integrations, APIs and Backend development.
@@ -23,6 +36,21 @@ import Layout from '@wing/layouts/Layout.astro';
         <p />
 		<InfoSection />
 	</Card>
+
+    <script>
+        const ageElement = document.getElementById("age");
+
+        if (ageElement) {
+            const birthYear = Number(ageElement.dataset.birthYear);
+            const birthMonth = Number(ageElement.dataset.birthMonth);
+            const birthDay = Number(ageElement.dataset.birthDay);
+            const today = new Date();
+            const hasHadBirthday = today.getMonth() + 1 > birthMonth
+                || (today.getMonth() + 1 === birthMonth && today.getDate() >= birthDay);
+
+            ageElement.textContent = String(today.getFullYear() - birthYear - (hasHadBirthday ? 0 : 1));
+        }
+    </script>
 
 	<div class="projects">
 		<Label>Projects</Label>
